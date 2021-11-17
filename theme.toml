@@ -1,8 +1,8 @@
-name = "asquaredozen_theme"
+name = "sysmansquadblog_theme"
 license = "GNU"
-licenselink = "https://github.com/AdamGrossTX/asquaredozen_theme/blob/master/LICENSE"
-description = "Hugo Theme for www.asquaredozen.com"
-homepage = "https://github.com/AdamGrossTX/asquaredozen_theme/"
+licenselink = "https://github.com/SysManSquad/sysmansquadblog/blob/master/LICENSE"
+description = "Hugo Theme for www.sysmansquad.com"
+homepage = "https://github.com/SysManSquad/sysmansquadblog/"
 tags = ["blog"]
 features = ["blog"]
 min_version = "0.20"

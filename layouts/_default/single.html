@@ -3,7 +3,17 @@
 		<article class="post type-post status-publish format-standard has-post-thumbnail hentry">
 			<div class="post-header">
 				<h1>{{ .Title }}</h1>
-				<span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+				<p class=p-meta>
+					{{- range .Params.authors }}
+					{{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+					<span class="post-author"><a href="{{ .Permalink }}">{{ .Params.name }}</a> / </span>
+					{{ end }}
+					{{ end }}
+					<span class="post-date">{{ .Date.Format "January 2, 2006" }} / </span>
+					{{- range .Params.categories }}
+					<span class="post-categories">{{ . }} / </span>
+					{{ end }}
+				</p>
 			</div>
 			<div class="post-entry">
 				{{ .Content }}
@@ -13,8 +23,6 @@
 				<div class="post-share-box share-comments">
 					hello
 				</div>
-			</div>
-			<div class="post-author">
 			</div>
 			{{ end }}
 			{{ if (eq .Params.type "post") }} {{ partial "comments.html" . }}{{ end }}
