@@ -4,10 +4,8 @@
 			<div class="post-header">
 				<h1>{{ .Title }}</h1>
 				<p class=p-meta>
-					{{- range .Params.authors }}
-					{{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
-					<span class="post-author"><a href="{{ .Permalink }}">{{ .Params.name }}</a> / </span>
-					{{ end }}
+					{{- with $.Site.GetPage (printf "authors/%s" (urlize .Params.author)) }}
+					<span class="post-author"><a href="{{ .Params.url }}">{{ .Params.name }}</a> / </span>
 					{{ end }}
 					<span class="post-date">{{ .Date.Format "January 2, 2006" }} / </span>
 					{{- range .Params.categories }}
