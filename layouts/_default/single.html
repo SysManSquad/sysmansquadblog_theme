@@ -6,10 +6,10 @@
 				<p class=p-meta>
 					{{ $author := index .Site.Data.authors (.Params.author | default "default") }}
 					<span class="post-author"><a href="/authors/{{ $author.stub }}">{{ $author.name }}</a> / </span>
-					{{ $author }}
-					<span class="post-date">{{ .Date.Format "January 2, 2006" }} / </span>
+
+					<span class="post-date">{{ .Date.Format "January 2, 2006" }} </span>
 					{{- range .Params.categories }}
-					<span class="post-categories">{{ . }} / </span>
+					<span class="post-categories">/ {{ . }}  </span>
 					{{ end }}
 				</p>
 			</div>
