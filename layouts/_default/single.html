@@ -4,9 +4,9 @@
 			<div class="post-header">
 				<h1>{{ .Title }}</h1>
 				<p class=p-meta>
-					{{- with $.Site.GetPage (printf "authors/%s" (urlize .Params.author)) }}
-					<span class="post-author"><a href="{{ .Params.url }}">{{ .Params.name }}</a> / </span>
-					{{ end }}
+					{{ $author := index .Site.Data.authors (.Params.author | default "default") }}
+					<span class="post-author"><a href="/authors/{{ $author.stub }}">{{ $author.name }}</a> / </span>
+					{{ $author }}
 					<span class="post-date">{{ .Date.Format "January 2, 2006" }} / </span>
 					{{- range .Params.categories }}
 					<span class="post-categories">{{ . }} / </span>
@@ -15,6 +15,8 @@
 			</div>
 			<div class="post-entry">
 				{{ .Content }}
+				<hr />
+				<img src="/authors/{{ $author.stub }}/avatar.png" /><p><em>{{$author.bio}}</em></p>
 			</div>
 			{{ with .Params.tags }}
 			<div class="post-share">
