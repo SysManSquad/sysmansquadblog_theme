@@ -15,6 +15,7 @@
 			</div>
 			<div class="post-entry">
 				{{ .Content }}
+				{{ if (ne .Params.layout "noauthor")}}
 				<img src="/authors/{{ $author.stub }}/avatar.png" alt="Photo of {{ $author.name }}" /><br />
 				<strong>{{ $author.name }}</strong>
 				<em>{{ $author.role }}</em>
@@ -28,6 +29,7 @@
 					</div>
 				<p>{{ $author.bio }}</p>
 				<hr />
+				{{ end }}
 			</div>
 			{{ with .Params.tags }}
 			<div class="post-share">
